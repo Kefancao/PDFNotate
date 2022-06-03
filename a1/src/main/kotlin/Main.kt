@@ -28,6 +28,13 @@ class Main : Application() {
     private fun previousDir(path : String): String {
         return path.split('/').dropLast(1).joinToString("/")
     }
+
+    private fun getPathWithNoSlash(path : String) : String{
+        if (path.last() == '/'){
+            return path.dropLast(1)
+        }
+        return path
+    }
     override fun start(stage: Stage) {
 
         // CREATE WIDGETS TO DISPLAY
@@ -122,7 +129,7 @@ class Main : Application() {
                 var item = Path.of(curr).listDirectoryEntries(glob)[directoryPane.selectionModel.selectedIndex]
                 if (Path.of("${td.editor.text}").exists()){
                     try{
-                        Files.move(item, Paths.get("${td.editor.text}/${directoryPane.selectionModel.selectedItem}"))
+                        Files.move(item, Paths.get("${getPathWithNoSlash(td.editor.text)}/${directoryPane.selectionModel.selectedItem}"))
                         directoryPane.items.setAll(Path.of(curr).listDirectoryEntries(glob).map{it.fileName}.plus("../"))
                     } catch (e : Throwable){
                         val alert = Alert(Alert.AlertType.ERROR, "ERROR: Invalid Target Directory")
@@ -279,7 +286,7 @@ class Main : Application() {
         // CREATE AND SHOW SCENE
         val scene = Scene(border, 800.0, 600.0)
         stage.scene = scene
-        stage.title = "A1 Demo"
+        stage.title = "A1 File System"
         stage.isResizable = false
         stage.show()
     }
