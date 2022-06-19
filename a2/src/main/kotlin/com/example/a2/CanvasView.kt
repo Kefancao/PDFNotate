@@ -39,7 +39,6 @@ class CanvasView(private val model : Model): Pane(), IView {
     override fun copySelected(){
         if (model.selectedShape == null) return;
         val content = ClipboardContent()
-        println(model.selectedShape.toString() + "*${model.selectedShape!!.strokeDashArray.size}\n")
         content.putString(model.selectedShape.toString() + "*${model.selectedShape!!.strokeDashArray.size}\n")
         model.clipboard.setContent(content)
     }
@@ -120,10 +119,6 @@ class CanvasView(private val model : Model): Pane(), IView {
             copySelected()
             children.remove(model.selectedShape)
             removeSelectedShape();
-        } else if (key == KeyCode.H){
-//            println("${height}")
-        } else if (key == KeyCode.W){
-//            println("${width}")
         }
     }
 
@@ -261,7 +256,6 @@ class CanvasView(private val model : Model): Pane(), IView {
                     "strokeWidth" -> sstrokeWidth = temp[1].toDouble()
                 }
             }
-            println("sx: ${sx}, sy: ${sy}, ex: ${ex}, ey: ${ey}, swidth: ${swidth}, sfill: ${sfill}, sstroke: ${sstroke}")
             children.add(drawRectangle(sx, sy, sheight, swidth, Color.web(sstroke), Color.web(sfill), sstrokeWidth, lty));
         } else if (t == 'L'){
             for (prop in props){
@@ -275,7 +269,6 @@ class CanvasView(private val model : Model): Pane(), IView {
                     "strokeWidth" -> sstrokeWidth = temp[1].toDouble()
                 }
             }
-            println("sx: ${sx}, sy: ${sy}, ex: ${ex}, ey: ${ey}, swidth: ${swidth}, sfill: ${sfill}, sstroke: ${sstroke}")
             children.add(drawLine(sx, sy, ex, ey, Color.web(sstroke), sstrokeWidth, lty))
         } else if (t == 'C'){
             for (prop in props){
@@ -289,7 +282,6 @@ class CanvasView(private val model : Model): Pane(), IView {
                     "strokeWidth" -> sstrokeWidth = temp[1].toDouble()
                 }
             }
-            println("sx: ${sx}, sy: ${sy}, ex: ${ex}, ey: ${ey}, swidth: ${swidth}, sfill: ${sfill}, sstroke: ${sstroke}")
             children.add(drawCircle(sx, sy, ex, Color.web(sstroke), Color.web(sfill), sstrokeWidth, lty))
         }
     }
@@ -341,7 +333,6 @@ class CanvasView(private val model : Model): Pane(), IView {
             if (model.tool == SELECT.SELECTION){
                 selectedCirc.centerX = origin_x + it.x - entry_x
                 selectedCirc.centerY = origin_y + it.y - entry_y
-                println(model.selectedShape.toString())
                 (model.selectedShape as Circle).centerX = selectedCirc.centerX
                 (model.selectedShape as Circle).centerY = selectedCirc.centerY
             }
