@@ -138,7 +138,6 @@ class CanvasView(private val model : Model): Pane(), IView {
         rect.strokeDashArray.clear()
         if (lty == LINE.DASHED.ordinal) rect.strokeDashArray.addAll(5.0)
         if (lty == LINE.JAGGED.ordinal) rect.strokeDashArray.addAll(20.0, 5.0, 15.0)
-        println("Drawn at ${x}, ${y}")
         rect.setOnMouseClicked { it ->
             // If the tool is selection and this rectangle is not selected, then
             //   we must deselect the previously selected shape if one exists.
@@ -296,8 +295,6 @@ class CanvasView(private val model : Model): Pane(), IView {
     }
 
     init{
-//        prefHeight = 800.0
-//        prefWidth = 1200.0
         // Rectangle Selector
         selectedRect.fill = Color.TRANSPARENT
         selectedRect.strokeDashArray.addAll(3.0)
@@ -411,7 +408,6 @@ class CanvasView(private val model : Model): Pane(), IView {
                 }
 
             } else if (model.tool == SELECT.CIRCLE){
-                println("SCENE GRAPH DRAGGING TRIGGERED")
                 val temp = model.selectedShape as Circle
                 temp.radius = Math.sqrt((temp.centerX - it.x) * (temp.centerX - it.x) + (temp.centerY - it.y) * (temp.centerY - it.y))
             } else if (model.tool == SELECT.LINE){
@@ -422,7 +418,6 @@ class CanvasView(private val model : Model): Pane(), IView {
         }
         setOnMouseClicked {
             if (model.selectedShape != null){
-                println("GOT IT HERE!!")
                 model.selectedShape = null
                 children.remove(selectedRect)
                 children.remove(selectedCirc)

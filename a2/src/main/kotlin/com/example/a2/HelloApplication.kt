@@ -120,12 +120,9 @@ class HelloApplication : Application() {
 
         val pane = BorderPane()
         scroll.content = canvasview
-//        scroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
-//        scroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
         scroll.isFitToWidth = true
         scroll.isFitToHeight = true
 
-//        val vbox = VBox(menubar, HBox(toolview, scroll))
         pane.left = toolview
         pane.center = scroll
         pane.top = menubar
