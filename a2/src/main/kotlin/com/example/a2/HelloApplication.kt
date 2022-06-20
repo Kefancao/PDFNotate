@@ -136,6 +136,10 @@ class HelloApplication : Application() {
 
         val scene = Scene(pane, 1200.0, 800.0)
         stage.title = "Paint"
+        stage.maxHeight = 1400.0
+        stage.maxWidth = 1900.0
+        stage.minHeight = 680.0
+        stage.minWidth = 640.0
         stage.scene = scene
         stage.show()
     }
