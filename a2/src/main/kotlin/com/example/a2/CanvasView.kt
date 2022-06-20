@@ -5,8 +5,7 @@ import javafx.scene.control.Alert
 import javafx.scene.control.ScrollPane
 import javafx.scene.input.ClipboardContent
 import javafx.scene.input.KeyCode
-import javafx.scene.layout.FlowPane
-import javafx.scene.layout.Pane
+import javafx.scene.layout.*
 import javafx.scene.paint.Color
 import javafx.scene.shape.Circle
 import javafx.scene.shape.Line
@@ -14,7 +13,7 @@ import javafx.scene.shape.Rectangle
 import javafx.scene.shape.Shape
 
 
-class CanvasView(private val model : Model): Pane(), IView {
+class CanvasView(private val model : Model): AnchorPane(), IView {
     var entry_x = 0.0
     var entry_y = 0.0
     var origin_x = 0.0
@@ -27,6 +26,7 @@ class CanvasView(private val model : Model): Pane(), IView {
 
     init{
         model.addView(this)
+
     }
 
     override fun pasteSelected() {
