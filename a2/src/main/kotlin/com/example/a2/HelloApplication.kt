@@ -78,7 +78,11 @@ class HelloApplication : Application() {
             }
 
         }
-        fileQuit.setOnAction { Platform.exit() }
+        fileQuit.setOnAction {
+            saveFile();
+            Platform.exit();
+        }
+
         fileSave.setOnAction {
             saveFile();
         }
