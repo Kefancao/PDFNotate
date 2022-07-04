@@ -1,5 +1,6 @@
 package com.example.a3
 
+import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.Group
 import javafx.scene.control.Label
@@ -18,16 +19,18 @@ class WelcomeView(private val model: SpaceInvader) : VBox(), IView{
     val instr2 = Label("Space - Fire!")
     val instr3 = Label("Q - Quit Game")
     val instr4 = Label("1 or 2 or 3 - Start Game at a specific level")
+    val info = Label("Kefan Cao (20898903)")
     init{
-
+        info.padding = Insets(30.0)
+        gameTitle.padding = Insets(20.0, 0.0, 20.0, 0.0)
         gameTitle.font = Font.font(30.0)
-        val words = arrayOf(startPrompt, instr1, instr2, instr3, instr4)
+        val words = arrayOf(startPrompt, instr1, instr2, instr3, instr4, info)
         for (lab in words){
             lab.font = Font.font(20.0)
         }
 
         children.add(siLogo);
-        children.addAll(gameTitle, startPrompt, instr1, instr2, instr3, instr4)
+        children.addAll(gameTitle, startPrompt, instr1, instr2, instr3, instr4, info)
         setOnKeyPressed {
             if (it.code == KeyCode.ENTER){
                 println("HERE");
