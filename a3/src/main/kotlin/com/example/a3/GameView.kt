@@ -1,21 +1,14 @@
 package com.example.a3
 
 import javafx.animation.AnimationTimer
-import javafx.scene.control.Alert
-import javafx.scene.control.Alert.AlertType
-import javafx.scene.control.Dialog
-import javafx.scene.control.Label
 import javafx.scene.input.KeyCode
 import javafx.scene.layout.Pane
 import javafx.scene.media.Media
 import javafx.scene.media.MediaPlayer
-import javafx.scene.paint.Color
-import javafx.scene.text.Font
-import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.math.abs
 
-class GameView(private val model: Model, private var level: Int = 1): Pane(), IView {
+class GameView(private val model: SpaceInvader, private var level: Int = 1): Pane(), IView {
     // Change 'bulletRate' to 0 if you'd like the ability to spam bullets.
     var bulletRate = 30;
     val classLoader = Thread.currentThread().contextClassLoader

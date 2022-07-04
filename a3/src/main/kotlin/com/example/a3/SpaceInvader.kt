@@ -2,7 +2,6 @@ package com.example.a3
 
 import javafx.application.Platform
 import javafx.geometry.Insets
-import javafx.scene.Scene
 import javafx.scene.control.Label
 import javafx.scene.input.KeyCode
 import javafx.scene.layout.BorderPane
@@ -10,7 +9,7 @@ import javafx.scene.layout.HBox
 import javafx.scene.paint.Color
 import javafx.scene.text.Font
 
-class Model : BorderPane(){
+class SpaceInvader : BorderPane(){
     val welcomePage = WelcomeView(this);
     var gamePage = GameView(this)
     var playing = false

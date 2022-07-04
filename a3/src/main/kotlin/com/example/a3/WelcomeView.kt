@@ -6,11 +6,10 @@ import javafx.scene.control.Label
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
 import javafx.scene.input.KeyCode
-import javafx.scene.layout.BorderStroke
 import javafx.scene.layout.VBox
 import javafx.scene.text.Font
 
-class WelcomeView(private val model: Model) : VBox(), IView{
+class WelcomeView(private val model: SpaceInvader) : VBox(), IView{
     val siLogo = ImageView(Image("logo.png"))
     val instructions = Group()
     val gameTitle = Label("Instructions")
