@@ -134,8 +134,8 @@ class GameView(private val model: SpaceInvader, private var level: Int = 1): Pan
                         bullet.y = -20.0;
                         MediaPlayer(Media(classLoader.getResource("invaderkilled.wav")?.toString())).play()
                         // Changing by a small amount since we don't want the game to become impossible.
-                        //  This will bound the alien speed by level hardness + 1 at most.
-                        direction += 0.02
+                        //  This will bound the alien speed by level hardness + 2 at most.
+                        direction += 0.04
                         children.remove(enemy);
                         alienList.remove(enemy);
                         model.score += level
