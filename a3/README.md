@@ -25,3 +25,5 @@ it practically impossible to beat the game, I've chosen to increase the speed by
 per alien defeated. Hence, the fastest it'll go given there are 50 aliens is level speed + 2 which seems reasonable. Level speed increases by 2 every level with level 1 starting at 4. 
 
 - Scoring is based on the level you're on. For each alien you defeat in level 1, 1 point is added to your score. For each alien you defeat in level 2, 2 points are added to your score. For each alien you defeat in level 3, 3 points are added to your score. 
+
+- The default size for this game is 1600x1200, so the game MUST be instantiated on a screen size at least this big, otherwise you will witness the game screen being undersized! If you're on a laptop, I recommend closing the laptop screen and using primarily the monitor, otherwise it will spawn the game screen according to your laptop size which is unlikely to be 1600x1200! Thank you!
