@@ -109,7 +109,10 @@ class GameView(private val model: SpaceInvader, private var level: Int = 1): Pan
                     MediaPlayer(Media(classLoader.getResource("explosion.wav")?.toString())).play()
                     model.lives -= 1;
                     model.updateLives()
-                    model.checkGameOver();
+                    if (model.lives == 0){
+                        model.endGame();
+                        this.stop()
+                    }
                     moverClock = 300;
                 }
             }
@@ -120,6 +123,7 @@ class GameView(private val model: SpaceInvader, private var level: Int = 1): Pan
                     if (alien.y > 1100.0){
                         model.lives = 0
                         model.endGame();
+                        this.stop();
                     }
                 }
 
@@ -171,7 +175,10 @@ class GameView(private val model: SpaceInvader, private var level: Int = 1): Pan
                     model.lives -= 1;
                     moverClock = 300;
                     model.updateLives();
-                    model.checkGameOver();
+                    if (model.lives == 0){
+                        model.endGame();
+                        stop();
+                    }
                     break;
                 }
             }
