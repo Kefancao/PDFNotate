@@ -17,49 +17,15 @@ import javafx.stage.Stage
 class HelloApplication : Application() {
     override fun start(stage: Stage) {
 
-        val model = Model();
-//        val welcomePage = WelcomeView(model);
-//        val gamePage = GameView(model)
-//        val levels = ArrayList<GameView>()
-//        val GameBorder = BorderPane();
-//        var currLevel = 1;
-//        GameBorder.center = gamePage
-//
-//
-        val rootGame = Scene(model, 1600.0, 1200.0)
-//        val rootWelcome = Scene(welcomePage, 1600.0, 1200.0)
-//
-//        val startGame = {
-//            stage.scene = rootGame
-//        }
-//
-//        val endGame = {}
-//
-//        val nextLevel = {
-//            currLevel += 1;
-//            if (currLevel == 3){
-//                endGame();
-//            } else{
-//                GameBorder.center = GameView(model, currLevel);
-//            }
-//        }
-//
+        val model = Model(); 
+        val rootGame = Scene(model, 1600.0, 1200.0) 
         rootGame.setOnKeyPressed {
             model.keyPress(it.code)
-        }
-//
-//        rootWelcome.setOnKeyPressed {
-//            if (it.code == KeyCode.SPACE){
-//                startGame();
-//            }
-//        }
-//
+        } 
         rootGame.setOnKeyReleased {
             model.keyRelease(it.code);
         }
-
-
-        stage.title = "Hello!"
+        stage.title = "My Space Invader"
         stage.scene = rootGame
         stage.isResizable = false;
         stage.show()
