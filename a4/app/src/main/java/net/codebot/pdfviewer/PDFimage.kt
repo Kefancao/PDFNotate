@@ -57,6 +57,7 @@ class PDFimage  // constructor
     (context: Context?) : ImageView(context) {
     val LOGNAME = "pdf_image"
 
+    // The following code is referenced from the cs349-public-repo/Android/PanZoom demo!
     // Scaling
     // we save a lot of points because they need to be processed
     // during touch events e.g. ACTION_MOVE
@@ -78,6 +79,8 @@ class PDFimage  // constructor
     var p2_index = 0
 
     var currPage = 0
+
+    // --------- END-----------
 
     var pagesUndo = ArrayList<ArrayList<UndoAction>>()
     var pagesRedo = ArrayList<ArrayList<UndoAction>>()
@@ -299,6 +302,7 @@ class PDFimage  // constructor
                 }
             }
             2 ->{
+                // The following code is referenced from the cs349-public-repo/Android/PanZoom demo!
                 // point 1
                 p1_id = event.getPointerId(0)
                 p1_index = event.findPointerIndex(p1_id)
